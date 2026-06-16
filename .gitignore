@@ -1,0 +1,18 @@
+# Regenerable data (write with 01_generate_data.py; ~21 MB)
+collatz_data.csv
+
+# Script outputs
+*_out.txt
+verify_output.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+preview/
+preview2/
