@@ -1,5 +1,7 @@
 # Vetting statistical anomalies in the Collatz map
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20723339.svg)](https://doi.org/10.5281/zenodo.20723339)
+
 Reproducible code and manuscript for the paper *Vetting statistical anomalies in
 the Collatz map: a falsification protocol and four worked failures*
 (D. Kadirbekov, 2026).
@@ -67,11 +69,10 @@ prints the exact values that appear in the paper.
 
 ## Citation
 
-After archiving, replace this block with the Zenodo DOI:
-
 ```
 D. Kadirbekov, Vetting statistical anomalies in the Collatz map: a falsification
-protocol and four worked failures, 2026. Code: <Zenodo DOI>.
+protocol and four worked failures (version v1.0.0), Zenodo, 2026.
+https://doi.org/10.5281/zenodo.20723339
 ```
 
 ## License
