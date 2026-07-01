@@ -14,7 +14,7 @@ denominators at small p).
 
 Run:        python verify_claims.py            (claims A-D at default scale)
             python verify_claims.py --full     (adds the N = 10^6 reruns of A and B
-                                                cited in AUDIT.md; a few extra minutes)
+                                                cited in the paper; a few extra minutes)
 
 Claims C and D read total stopping times from collatz_data.csv (built by
 01_generate_data.py) instead of recomputing 10^6 trajectories.
@@ -144,6 +144,12 @@ def claim_a(full=False):
               v2_trajectory_visited(100_000))
 
     # 3. Scale check: does the bump decay as the range grows?
+    # Four-point series cited in the paper: 1.721 / 1.526 / 1.424 / 1.353.
+    print("\n  SCALE SERIES: k=4 ratio over trajectory-visited odds")
+    for N in (1_000, 10_000, 100_000) + ((1_000_000,) if full else ()):
+        c = v2_trajectory_visited(N)
+        tot = sum(c.values())
+        print(f"    N = {N:>9,}:  k=4 ratio = {(c.get(4, 0) / tot) / 2.0 ** -4:.3f}")
     if full:
         report_v2("SCALE CHECK: trajectory-visited odds, n=1..1000000",
                   v2_trajectory_visited(1_000_000))
@@ -387,7 +393,7 @@ def claim_d():
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--full", action="store_true",
-                    help="also run claims A and B at N = 10^6 (the AUDIT.md scale check)")
+                    help="also run claims A and B at N = 10^6 (the paper's scale check)")
     args = ap.parse_args()
     claim_a(full=args.full)
     claim_b(full=args.full)
